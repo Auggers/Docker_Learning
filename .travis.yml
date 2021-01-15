@@ -1,0 +1,9 @@
+sudo : required
+services: 
+  - docker
+
+before_install:
+  - docker build -t Auggers/Docker_Learning -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true Auggers/Docker_Learning npm run test
