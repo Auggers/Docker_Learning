@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t auggers/Docker_Learning -f Dockerfile.dev .
+  - docker build -t auggers/docker_learning -f Dockerfile.dev .
 
 script:
   - docker run -e CI=true auggers/Docker_Learning npm run test
