@@ -1,0 +1,8 @@
+i = 101
+
+while (i != 151):
+    num = str(i)
+    file_object = open('sample.txt', 'a')
+    file_object.write('<Screen id="add" name="networkHierarchy" package="com.q1labs.qa.selenium.screens.admin" class="NetworkHierarchy"><ScreenData step="2" description="Click the add button"><element name="add" type="button" value="CLICK" /></ScreenData></Screen><Screen name="addNetworkObject" package="com.q1labs.qa.selenium.screens.admin" class="NetworkHierarchy"><ScreenData step="3" description="Name network object, click Edit button"><element name="name" type="button" value="Group123' + num + '" /><element name="editGroup" type="button" value="CLICKAT" /></ScreenData></Screen><Screen name="addNewGroup" package="com.q1labs.qa.selenium.screens.admin" class="NetworkHierarchy"><ScreenData step="4" description="Save new network group"><element name="name" type="button" value="network123' + num + '" /><element name="save" type="button" value="CLICK" /></ScreenData></Screen><Screen name="addNetworkObject" package="com.q1labs.qa.selenium.screens.admin" class="NetworkHierarchy"><ScreenData step="7" description="Add IP cidr and save"><element name="ipCidrTextfield" type="button" value="1.1.2.' + num + '/32" /><element name="addIpCidr" type="button" value="CLICK" /><element name="networkIpCidr" type="button" value="= 1.1.2.' + num + '/32" /><element name="save" type="button" value="CLICK" /></ScreenData></Screen>')
+    file_object.close()
+    i = i + 1
