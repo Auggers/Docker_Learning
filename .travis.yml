@@ -1,0 +1,24 @@
+sudo: required
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - docker build -t auggers/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true auggers/react-test npm test
+
+after_success:
+  - docker build -t auggers/multi-client ./client
+  - docker build -t auggers/multi-nginx ./nginx
+  - docker build -t auggers/multi-server ./server
+  - docker build -t auggers/multi-worker ./worker
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push auggers/multi-client
+  - docker push auggers/multi-nginx
+  - docker push auggers/multi-server
+  - docker push auggers/multi-worker
